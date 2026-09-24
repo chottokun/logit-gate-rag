@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments & Local runtimes
+.venv
+venv/
+ENV/
+
+# Secrets & Environment configs
+.env
+.env.*
+*.pem
+*.key
+
+# Local Editor & Tool Artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# AGY & Agent runtime caches
+.agents/
+scratch/
+tmp/
+*.log
