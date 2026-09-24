@@ -1,6 +1,9 @@
 # logit-rerank-rag
 
+[English](README.md) | [日本語](README.ja.md)
+
 High-precision, ultra-low-latency RAG filtering pipeline combining **Ruri** semantic search and **Qwen2.5** pointwise logit classification.
+
 
 ## Overview
 
