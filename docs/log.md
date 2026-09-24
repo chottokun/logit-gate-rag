@@ -10,3 +10,4 @@
 * **Update**: Jules (Session 2960451210814784349) による情報充足性評価ベンチマークスイート（benchmarks/datasets/sufficiency_eval.json, benchmarks/run_benchmark.py, tests/test_benchmark.py）の実装・テストを完了・手元反映し、全8件のテストがパスしました。
 * **Update**: RTX 3060 実機 GPU 上で実モデル (Ruri-v3-30m / Qwen2.5-1.5B) によるベンチマークを実行。ニアミス文書の 100% 遮断 (Logit Margin: -6.1) および回答生成 LLM スキップによる 8 秒短縮効果を実証し、レポートを docs/architecture/ に作成しました。
 * **Update**: Jules (Session 15689317489505004077) によりデータセットを N=54（実務4ドメイン）に約10倍拡張し、RTX 3060 実機で検証。正解率96.3%（52/54件）、ニアミス遮断率94.4%（17/18件）、平均レイテンシ51.9ms、下流LLMスキップによる72秒短縮を実証し、レポートを docs/architecture/ に作成しました。
+* **Update**: Standardized and polished all repository documentation (README.md, docs/) according to OKF v0.2 and AGENTS.md guidelines. Organized architecture diagrams and added clear quickstart guides and benchmark summaries.

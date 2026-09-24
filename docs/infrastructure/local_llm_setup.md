@@ -1,4 +1,5 @@
 ---
+okf_version: "0.2"
 type: "Configuration"
 title: "ローカルLLM設定とトークン最適化ガイド (RTX 3060 / Gemma 4 / agy CLI)"
 description: "RTX 3060 (VRAM 12GB) における Ollama + Gemma 4 の Antigravity SDK / agy CLI 連携構成と、トークン消費ゼロで高品質パッチを当てるためのノウハウ"
@@ -33,7 +34,7 @@ NVIDIA GeForce RTX 3060（VRAM 12GB）環境上で、Google のオープンモ�
    - NVIDIA GeForce RTX 3060 (12GB GDDR6)
    - CUDA 12.x / Driver 535+
 2. **モデル実行基盤 (Ollama または vLLM)**:
-   - OpenAI 互換エンドポイント（`http://localhost:11434/v1`）
+   - OpenAI 互換エンドポイント（例: `http://127.0.0.1:11434/v1`）
    - モデル: `gemma4:latest`（量子化 Q4_K_M または Q8_0 で 12GB VRAM 内に完全オフロード可能）
 3. **Antigravity SDK / CLI**:
    - `google-antigravity` Python パッケージ
@@ -54,8 +55,8 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 # RTX 3060 上の Ollama (Gemma 4) に接続する設定
 local_gemma_config = LocalOpenAIAgentConfig(
-    base_url="http://localhost:11434/v1",
-    api_key="ollama",                # ダミーAPIキー
+    base_url=os.getenv("OLLAMA_API_BASE", "http://127.0.0.1:11434/v1"),
+    api_key=os.getenv("OLLAMA_API_KEY", "dummy"),
     model="gemma4:latest",
     workspaces=[PROJECT_ROOT],
     capabilities=CapabilitiesConfig(  # ファイル読み書きやコマンド実行を許可
