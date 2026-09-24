@@ -117,25 +117,15 @@ def run_benchmark(dataset_path: str, use_gpu: bool = True):
     # Or, we can just treat the router as a zero-shot classifier on the pairs.
 
     baseline_results = []
-    baseline_start_time = time.time()
+    baseline_start_time = time.perf_counter()
     for item in dataset:
         query = item["query"]
         target_doc = item["document"]
         true_label = item["label"]
         item_type = item["type"]
 
-        # Dense Retrieval alone (Baseline)
-        # Assuming we retrieve from the corpus, does it return the target doc?
-        # Actually, dense retrieval just scores the similarity.
-        # If we just score query and target_doc, we can use a threshold.
-        # But let's just do retrieval on all docs and see if target_doc is in top-1.
         retrieved = retriever.retrieve(query, top_k=1)
         pred_label = 1 if retrieved and retrieved[0]["text"] == target_doc else 0
-
-        # If it's a near_miss, dense retrieval often ranks it high. Let's see if it's retrieved.
-        if item_type == "near_miss":
-            # If target doc is the near miss one, and it gets retrieved, then pred_label is 1 (False Positive)
-            pred_label = 1 if retrieved and retrieved[0]["text"] == target_doc else 0
 
         baseline_results.append(
             {
@@ -147,21 +137,19 @@ def run_benchmark(dataset_path: str, use_gpu: bool = True):
                 "type": item_type,
             }
         )
-    baseline_end_time = time.time()
+    baseline_end_time = time.perf_counter()
     baseline_latency = (baseline_end_time - baseline_start_time) / len(dataset)
 
     print("Evaluating HighPrecisionRAGPipeline (Ruri + Qwen2.5 Logit Router)...")
     # For pipeline, we retrieve and then route.
     pipeline_results = []
-    pipeline_start_time = time.time()
+    pipeline_start_time = time.perf_counter()
     for item in dataset:
         query = item["query"]
         target_doc = item["document"]
         true_label = item["label"]
         item_type = item["type"]
 
-        # Instead of searching the whole corpus, let's use the router directly on the pair to evaluate its classification power
-        # since the dataset provides pairs.
         candidates = [{"text": target_doc}]
         verified = router.filter_documents(query, candidates, threshold=0.5)
 
@@ -177,7 +165,7 @@ def run_benchmark(dataset_path: str, use_gpu: bool = True):
                 "type": item_type,
             }
         )
-    pipeline_end_time = time.time()
+    pipeline_end_time = time.perf_counter()
     pipeline_latency = (pipeline_end_time - pipeline_start_time) / len(dataset)
 
     baseline_metrics = calculate_metrics(baseline_results)
