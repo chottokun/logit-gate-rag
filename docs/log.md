@@ -6,3 +6,4 @@
 * **Creation**: cl-nagoya/ruri-v3-30m 埋め込みモデル仕様をドメインナレッジに追加しました。
 * **Update**: Jules による Ruri 埋め込み検索および Qwen2.5 Logit ルーターの自動実装を完了・手元マージし、ローカル環境 (RTX 3060 / pytest) にて全件パスを確認しました。
 * **Creation**: agy_sample.py のアプローチを比較分析し、ローカルLLMを用いたトークン削減と実装品質を両立させる設計指針を docs/architecture/ に文書化しました。
+* **Update**: Jules (Session 13520021364216529782) による肯定的応答バイアス補正 (calibrate) とパイプラインのフォールバック戦略 (strict/message/top_1/callable) の実装・テストを完了・手元反映し、全5件の単体テストがパスしました。
