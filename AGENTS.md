@@ -9,9 +9,10 @@
 ## 2. Architecture & Role Division
 - **Cloud (Google Jules)**:
   - Global codebase indexing, multi-component planning, and generating clean Pull Requests (PRs).
-- **Local (RTX 3060 / agy CLI / Gemma 4)**:
+- **Local (RTX 3060 GPU)**:
   - Local GPU verification (CUDA, PyTorch, SentencePiece, Logit extraction).
-  - Fast, zero-token-cost local patching for test failures or device-specific adjustments.
+  - Fast local testing and device-specific verification.
+
 
 ## 3. Documentation & Standards
 - Documentation follows the Open Knowledge Format (OKF v0.2) under `docs/`.

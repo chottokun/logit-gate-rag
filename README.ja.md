@@ -100,23 +100,20 @@ uv run pytest
 
 ## ドキュメント & ナレッジベース
 
-設計仕様や運用ノウハウは [docs/](docs/) に OKF (Open Knowledge Format) v0.2 形式で整理されています：
+設計仕様や実機ベンチマークレポートは [docs/](docs/) に OKF (Open Knowledge Format) v0.2 形式で整理されています：
 
 - **[ナレッジインデックス](docs/README.md)**: ドキュメント全体の目次
-- **[アーキテクチャ設計](docs/architecture/README.md)**:
-  - [Jules × agy CLI ハイブリッド開発パイプライン](docs/architecture/jules_local_hybrid_pipeline.md)
-  - [N=54 大規模データセット実機検証レポート](docs/architecture/benchmark_report_n54.md)
-  - [ローカルLLM活用によるトークン最適化分析](docs/architecture/token_optimization_analysis.md)
-- **[ドメイン知識](docs/domain/README.md)**:
-  - [cl-nagoya/ruri-v3-30m モデル仕様](docs/domain/ruri_v3_30m.md)
-- **[インフラストラクチャ](docs/infrastructure/README.md)**:
-  - [ローカルLLM設定ガイド (RTX 3060 / Gemma 4 / agy CLI)](docs/infrastructure/local_llm_setup.md)
+- **[アーキテクチャ & ベンチマーク](docs/architecture/README.md)**:
+  - [N=54 大規模マルチドメイン実機検証レポート](docs/architecture/benchmark_report_n54.md)
+  - [RTX 3060 実機検証ベンチマーク結果レポート](docs/architecture/benchmark_report_rtx3060.md)
+- **[ドメイン & モデル仕様](docs/domain/README.md)**:
+  - [cl-nagoya/ruri-v3-30m 埋め込みモデル仕様と最適化](docs/domain/ruri_v3_30m.md)
 - **[仕様・計画書](plan/search_logit_sem.md)**: 本プロジェクトの初期企画・設計書
 
 ---
 
 ## 開発体制・ワークフロー
 
-本プロジェクトはクラウドとローカルを組み合わせたハイブリッド開発モデルを採用しています：
-- **Cloud (Google Jules)**: リポジトリ全体のインデックス把握、自律型プランニング、GitHub Pull Request (PR) の生成。
-- **Local (RTX 3060 / agy CLI / Gemma 4)**: 実機 GPU 上での CUDA / PyTorch 検証、ゼロトークンコストでのローカルパッチ適用。
+- **Cloud (Google Jules)**: リポジトリ全体のインデックス把握、自律型実装、Pull Request (PR) の生成。
+- **Local (RTX 3060 GPU)**: 実機 GPU 上での高速な動作検証（CUDA, PyTorch, SentencePiece, Logit抽出）。
+

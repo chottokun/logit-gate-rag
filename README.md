@@ -74,14 +74,16 @@ PYTHONPATH=. uv run benchmarks/run_benchmark.py
 
 ## Architecture & Knowledge Base
 
-Project specifications, architecture decisions, and workflow guides are documented in [docs/](docs/):
-- [Architecture Index](docs/architecture/README.md)
-- [Jules × agy CLI Hybrid Pipeline](docs/architecture/jules_local_hybrid_pipeline.md)
-- [Local LLM Setup & Optimization](docs/infrastructure/local_llm_setup.md)
-- [Specifications & Plans](plan/search_logit_sem.md)
+Project specifications, architecture decisions, and benchmark reports are documented in [docs/](docs/):
+- [Architecture & Benchmarks](docs/architecture/README.md)
+  - [N=54 Multi-Domain Benchmark Report](docs/architecture/benchmark_report_n54.en.md)
+  - [RTX 3060 Real-Device Verification Report](docs/architecture/benchmark_report_rtx3060.en.md)
+- [Domain & Model Specifications](docs/domain/README.md)
+  - [Ruri-v3-30m Lightweight Dense Retrieval](docs/domain/ruri_v3_30m.en.md)
+- [Specifications & Planning](plan/search_logit_sem.md)
 
 ## Development Workflow
 
-This project utilizes a hybrid development model:
-- **Cloud (Google Jules)**: Autonomous implementation planning and GitHub Pull Request generation.
-- **Local (RTX 3060 / agy CLI / Gemma 4)**: On-device CUDA/PyTorch verification and zero-token-cost local patching via Antigravity SDK.
+- **Cloud (Google Jules)**: Autonomous implementation, benchmarking expansion, and Pull Request authoring.
+- **Local (RTX 3060 GPU)**: High-speed on-device verification (CUDA, PyTorch, SentencePiece, logit extraction).
+
