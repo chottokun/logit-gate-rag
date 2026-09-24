@@ -34,7 +34,7 @@ Please create a clean branch and open a Pull Request when completed.
 def main():
     print("==================================================")
     print(" Dispatching implementation task to Google Jules...")
-    print(" Target repo: chottokun/logit-rerank-rag")
+    print(" Target repo: chottokun/logit-gate-rag")
     print("==================================================")
 
     cmd = ["jules", "remote", "new", "--session", PROMPT]

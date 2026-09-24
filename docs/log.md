@@ -12,4 +12,6 @@
 * **Update**: Jules (Session 15689317489505004077) によりデータセットを N=54（実務4ドメイン）に約10倍拡張し、RTX 3060 実機で検証。正解率96.3%（52/54件）、ニアミス遮断率94.4%（17/18件）、平均レイテンシ51.9ms、下流LLMスキップによる72秒短縮を実証し、レポートを docs/architecture/ に作成しました。
 * **Update**: Standardized and polished all repository documentation (README.md, docs/) according to OKF v0.2 and AGENTS.md guidelines. Organized architecture diagrams and added clear quickstart guides and benchmark summaries.
 * **Update**: Added full Japanese README (`README.ja.md`) with bilingual language toggles and enriched bilingual index structures across `docs/` (OKF v0.2).
+* **Update**: Renamed project and repository from `logit-rerank-rag` to `logit-gate-rag` to accurately reflect its core mechanism as a high-speed sufficiency gate and router rather than a traditional reranker.
+
 

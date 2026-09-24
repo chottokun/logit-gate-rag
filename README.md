@@ -1,4 +1,4 @@
-# logit-rerank-rag
+# logit-gate-rag
 
 [English](README.md) | [日本語](README.ja.md)
 
@@ -7,7 +7,7 @@ High-precision, ultra-low-latency RAG filtering pipeline combining **Ruri** sema
 
 ## Overview
 
-Traditional generative LLM rerankers introduce substantial latency due to autoregressive decoding loops. `logit-rerank-rag` solves this by:
+Traditional generative LLM rerankers introduce substantial latency due to autoregressive decoding loops. `logit-gate-rag` solves this by:
 1. Extracting candidate passages using lightweight dense retrieval (**Ruri-v3** + pure SentencePiece).
 2. Pointwise relevance filtering by directly evaluating unnormalized logits ("Yes" / "No") at the LM-Head without generating tokens.
 
@@ -49,8 +49,8 @@ This project uses `uv` for fast dependency management.
 
 ```bash
 # Clone the repository
-git clone https://github.com/chottokun/logit-rerank-rag.git
-cd logit-rerank-rag
+git clone https://github.com/chottokun/logit-gate-rag.git
+cd logit-gate-rag
 
 # Install dependencies using uv
 uv sync

@@ -27,7 +27,7 @@ sources:
 
 [`cl-nagoya/ruri-v3-30m`](https://huggingface.co/cl-nagoya/ruri-v3-30m) は、ModernBERT-Ja アーキテクチャを基盤とし、SentencePiece Unigram（語彙数10万）を採用した極めて軽量な日本語汎用テキスト埋め込みモデルです。
 
-本プロジェクト（`logit-rerank-rag`）における第1段階の「Bi-Encoder 事前スクリーニング（Dense Retrieval）」の**デフォルト推奨モデル**として最適です。
+本プロジェクト（`logit-gate-rag`）における第1段階の「Bi-Encoder 事前スクリーニング（Dense Retrieval）」の**デフォルト推奨モデル**として最適です。
 
 ---
 

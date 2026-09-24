@@ -1,7 +1,7 @@
 [project]
-name = "search-logit-sem"
+name = "logit-gate-rag"
 version = "0.1.0"
-description = "Add your description here"
+description = "High-precision, ultra-low-latency RAG gate & filtering pipeline using Ruri dense retrieval and Qwen2.5 pointwise logit classification."
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [

@@ -1,7 +1,7 @@
 # AI Agent Operational Rules & Guidelines
 
 ## 1. Public Repository Security & Privacy Guardrails (CRITICAL)
-- This repository is **PUBLIC** (`chottokun/logit-rerank-rag`).
+- This repository is **PUBLIC** (`chottokun/logit-gate-rag`).
 - **NEVER** commit API keys, tokens, credentials, internal IP addresses (`10.x.x.x`, `192.168.x.x`), or specific local user path names (e.g. `/home/username/`).
 - Always use environment variables (`os.getenv(...)`) and relative paths.
 - Ensure temporary files, `.env*`, and local artifacts are ignored in `.gitignore`.

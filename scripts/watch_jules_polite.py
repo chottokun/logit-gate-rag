@@ -64,7 +64,7 @@ def parse_sessions(output: str) -> List[Dict[str, str]]:
 def main():
     parser = argparse.ArgumentParser(description="Jules 控えめ監視スクリプト")
     parser.add_argument("--session", help="監視するセッションID")
-    parser.add_argument("--repo", default="chottokun/logit-rerank-rag", help="監視するリポジトリ")
+    parser.add_argument("--repo", default="chottokun/logit-gate-rag", help="監視するリポジトリ")
     parser.add_argument("--interval", type=int, default=120, help="チェック間隔（秒、デフォルト: 120秒 = 2分）")
     parser.add_argument("--auto-pull", action="store_true", help="完了時に自動 pull")
     args = parser.parse_args()

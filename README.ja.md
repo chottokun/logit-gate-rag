@@ -1,4 +1,4 @@
-# logit-rerank-rag
+# logit-gate-rag
 
 [English](README.md) | [日本語](README.ja.md)
 
@@ -7,7 +7,7 @@
 ## 概要
 
 従来の生成型 LLM によるリランカー（再順位付け）は、トークンの自己回帰デコード（Autoregressive Decoding）を伴うため、数十秒単位の大幅な遅延が発生します。
-本プロジェクト `logit-rerank-rag` では、以下の 2 ステップによりこの課題を解決します：
+本プロジェクト `logit-gate-rag` では、以下の 2 ステップによりこの課題を解決します：
 
 1. **超軽量密ベクトル検索**: **Ruri-v3-30m**（37M パラメータ、埋め込み次元 256、純粋 SentencePiece Unigram）による高速な候補ドキュメント抽出。
 2. **生成レス・Pointwise Logit ルーティング**: 言語モデルの LM-Head における未正規化ロジット（"Yes" / "No"）を直接評価。トークン生成を一切行わずに情報充足性を判定し、不要な後段 LLM 呼び出しを高速に遮断（Fast Reject）。
@@ -70,8 +70,8 @@ NVIDIA GeForce RTX 3060（12GB VRAM）実機環境において、実務 4 ドメ
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/chottokun/logit-rerank-rag.git
-cd logit-rerank-rag
+git clone https://github.com/chottokun/logit-gate-rag.git
+cd logit-gate-rag
 
 # 依存パッケージの同期
 uv sync
