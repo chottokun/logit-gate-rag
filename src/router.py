@@ -32,6 +32,26 @@ class QwenLogitFilter:
         assert self.yes_token_id != self.tokenizer.unk_token_id, "Token 'Yes' not found."
         assert self.no_token_id != self.tokenizer.unk_token_id, "Token 'No' not found."
 
+        self.baseline_margin = 0.0
+
+    @torch.inference_mode()
+    def calibrate(self, empty_query: str = "", empty_document: str = "") -> float:
+        """Measure baseline positivity bias for calibration"""
+        prompt = self._build_prompt(empty_query, empty_document)
+        encoded = self.tokenizer(
+            [prompt],
+            return_tensors="pt",
+        ).to(self.device)
+
+        outputs = self.model(**encoded)
+        next_token_logits = outputs.logits[:, -1, :]
+
+        yes_logit = next_token_logits[0, self.yes_token_id].item()
+        no_logit = next_token_logits[0, self.no_token_id].item()
+        
+        self.baseline_margin = float(yes_logit - no_logit)
+        return self.baseline_margin
+
     def _build_prompt(self, query: str, document: str) -> str:
         """ChatML仕様に厳格に準拠した情報充足性判定プロンプトを構築"""
         return (
@@ -77,7 +97,10 @@ class QwenLogitFilter:
         yes_logits = next_token_logits[:, self.yes_token_id]
         no_logits = next_token_logits[:, self.no_token_id]
 
-        stacked_logits = torch.stack([no_logits, yes_logits], dim=1) / temperature
+        # Apply baseline calibration to yes_logits
+        calibrated_yes_logits = yes_logits - self.baseline_margin
+
+        stacked_logits = torch.stack([no_logits, calibrated_yes_logits], dim=1) / temperature
         probs = F.softmax(stacked_logits, dim=-1)
         yes_probs = probs[:, 1].tolist()
 
@@ -88,7 +111,7 @@ class QwenLogitFilter:
             if p_yes >= threshold:
                 item = dict(candidate)
                 item["sufficiency_prob"] = float(p_yes)
-                item["logit_margin"] = float(z_yes - z_no)
+                item["logit_margin"] = float((z_yes - self.baseline_margin) - z_no)
                 filtered_results.append(item)
 
         filtered_results.sort(key=lambda x: x["sufficiency_prob"], reverse=True)

@@ -88,6 +88,22 @@ def test_router(mock_router):
     assert "logit_margin" in filtered[0]
 
 
+def test_router_calibrate(mock_router):
+    # Setup mock to return specific logits for calibration (batch_size=1)
+    def mock_forward_calibrate(**kwargs):
+        class Output:
+            def __init__(self):
+                self.logits = torch.randn(1, 10, 3)
+                self.logits[0, -1, 1] = 5.0  # Yes
+                self.logits[0, -1, 2] = 2.0  # No
+        return Output()
+    
+    mock_router.model.side_effect = mock_forward_calibrate
+    
+    margin = mock_router.calibrate()
+    assert margin == 3.0
+    assert mock_router.baseline_margin == 3.0
+
 def test_pipeline(mock_retriever, mock_router):
     pipeline = HighPrecisionRAGPipeline(retriever=mock_retriever, router=mock_router)
     
@@ -100,3 +116,37 @@ def test_pipeline(mock_retriever, mock_router):
     results = pipeline.search_and_filter("query")
     assert len(results) == 1
     assert results[0]["text"] == "Good info"
+
+def test_pipeline_fallback(mock_retriever, mock_router):
+    pipeline = HighPrecisionRAGPipeline(retriever=mock_retriever, router=mock_router)
+    
+    # Empty verified candidates (no candidates pass threshold)
+    mock_router.filter_documents = MagicMock(return_value=[])
+    retrieved = [
+        {"corpus_id": 0, "text": "Fallback info", "retrieval_score": 0.5}
+    ]
+    mock_retriever.retrieve = MagicMock(return_value=retrieved)
+
+    # test strict
+    res_strict = pipeline.search_and_filter("query", fallback_strategy="strict")
+    assert res_strict == []
+
+    # test message
+    res_msg = pipeline.search_and_filter("query", fallback_strategy="message")
+    assert len(res_msg) == 1
+    assert res_msg[0]["text"] == "I don't have enough information to answer this query."
+    assert res_msg[0]["sufficiency_prob"] == 0.0
+
+    # test top_1
+    res_top1 = pipeline.search_and_filter("query", fallback_strategy="top_1")
+    assert len(res_top1) == 1
+    assert res_top1[0]["text"] == "Fallback info"
+
+    # test callable
+    def custom_fallback(q, candidates):
+        return [{"text": "Custom fallback", "q": q}]
+    
+    res_custom = pipeline.search_and_filter("query", fallback_strategy=custom_fallback)
+    assert len(res_custom) == 1
+    assert res_custom[0]["text"] == "Custom fallback"
+    assert res_custom[0]["q"] == "query"
