@@ -22,6 +22,8 @@ sources:
     title: "Sufficiency Evaluation Dataset"
 ---
 
+[English](benchmark_report_rtx3060.en.md) | [日本語](benchmark_report_rtx3060.md)
+
 # Ruri-v3-30m × Qwen2.5 Logit ルーター実機検証ベンチマーク結果レポート
 
 ## 1. 実行環境スペック

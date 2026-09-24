@@ -21,6 +21,8 @@ sources:
     title: "Ruri埋め込み検索とQwen2.5選択肢ロジットルーター設計書"
 ---
 
+[English](ruri_v3_30m.en.md) | [日本語](ruri_v3_30m.md)
+
 # cl-nagoya/ruri-v3-30m 埋め込みモデル仕様と最適化
 
 ## 1. 概要

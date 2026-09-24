@@ -22,6 +22,8 @@ sources:
     title: "Introducing support for local AI models in the Antigravity SDK"
 ---
 
+[English](token_optimization_analysis.en.md) | [日本語](token_optimization_analysis.md)
+
 # ローカルLLM活用によるクラウドトークン削減と品質両立の設計分析
 
 ## 1. 背景と課題

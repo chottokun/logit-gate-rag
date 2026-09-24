@@ -20,6 +20,8 @@ sources:
     title: "Introducing support for local AI models in the Antigravity SDK"
 ---
 
+[English](local_llm_setup.en.md) | [日本語](local_llm_setup.md)
+
 # ローカルLLM設定とトークン最適化ガイド (RTX 3060 / Gemma 4 / agy CLI)
 
 ## 1. 概要

@@ -22,6 +22,8 @@ sources:
     title: "Benchmark Runner"
 ---
 
+[English](benchmark_report_n54.en.md) | [日本語](benchmark_report_n54.md)
+
 # 大規模データセット (N=54) 実機ベンチマーク検証レポート
 
 ## 1. データセット構成 (N=54)

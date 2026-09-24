@@ -12,6 +12,6 @@ This directory manages core technical specifications for embedding models, token
 
 ## Document List / ドキュメント一覧
 
-* [cl-nagoya/ruri-v3-30m 埋め込みモデル仕様と最適化](./ruri_v3_30m.md)
+* [cl-nagoya/ruri-v3-30m 埋め込みモデル仕様と最適化](./ruri_v3_30m.md) / [English](./ruri_v3_30m.en.md)
   - パラメータ数37M・埋め込み次元256・SentencePiece Unigram依存による極限低遅延セマンティック検索モデルの活用仕様
   - *Ruri-v3-30m lightweight dense retrieval model specifications (37M params, 256-dim, pure SentencePiece)*

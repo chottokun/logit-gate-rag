@@ -22,6 +22,8 @@ sources:
     title: "Jules Runner Skill"
 ---
 
+[English](jules_local_hybrid_pipeline.en.md) | [日本語](jules_local_hybrid_pipeline.md)
+
 # Jules × agy CLI (Local GPU) ハイブリッド開発パイプライン
 
 ## 1. 概要

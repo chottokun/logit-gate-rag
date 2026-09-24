@@ -13,5 +13,7 @@
 * **Update**: Standardized and polished all repository documentation (README.md, docs/) according to OKF v0.2 and AGENTS.md guidelines. Organized architecture diagrams and added clear quickstart guides and benchmark summaries.
 * **Update**: Added full Japanese README (`README.ja.md`) with bilingual language toggles and enriched bilingual index structures across `docs/` (OKF v0.2).
 * **Update**: Renamed project and repository from `logit-rerank-rag` to `logit-gate-rag` to accurately reflect its core mechanism as a high-speed sufficiency gate and router rather than a traditional reranker.
+* **Update**: Jules (Session 2975524209623296123) authored comprehensive English versions (`*.en.md`) across all documentation in `docs/` and integrated bilingual language toggles and index navigation (OKF v0.2).
+
 
 
