@@ -1,6 +1,8 @@
 ---
 okf_version: "0.2"
 type: "Domain"
+description: "Documentation Index"
+status: "stable"
 title: "Domain Index / ドメインインデックス"
 ---
 

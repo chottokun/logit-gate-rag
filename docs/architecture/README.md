@@ -1,6 +1,8 @@
 ---
 okf_version: "0.2"
 type: "Architecture"
+description: "Documentation Index"
+status: "stable"
 title: "Architecture & Benchmarks Index / アーキテクチャ & ベンチマーク"
 ---
 

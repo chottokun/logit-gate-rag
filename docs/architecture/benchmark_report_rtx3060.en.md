@@ -57,19 +57,19 @@ As discussed in the Qiita article, we measured the behavior against **"documents
 * **Question**: `富士山の標高は何メートルですか？` (What is the elevation of Mount Fuji in meters?)
 * **Positive Document**: `富士山は、静岡県と山梨県に跨る活火山である。標高は3776.12メートルで、日本最高峰の独立峰である。` (Mount Fuji is an active volcano spanning Shizuoka and Yamanashi prefectures. Its elevation is 3776.12 meters, making it the highest independent peak in Japan.)
   - Ruri Cosine Similarity: **0.940**
-  - Qwen2.5 Logit Sufficiency Prob: **98.83%** (Margin: +4.50) → **【PASS】**
+  - Qwen2.5 Logit Sufficiency Probability: **98.83%** (Margin: +4.50) → **【PASS】**
 * **Near-Miss Negative Document**: `富士山は、静岡県と山梨県に跨る活火山である。古くから霊峰として信仰の対象となっており、多くの登山客が訪れる。` (Mount Fuji is an active volcano... It has long been an object of faith as a sacred mountain...)
   - Ruri Cosine Similarity: **0.940** (Top hit with extremely high similarity identical to the positive!)
-  - Qwen2.5 Logit Sufficiency Prob: **0.22%** (Margin: **-6.125**) → **【DROP】**
+  - Qwen2.5 Logit Sufficiency Probability: **0.22%** (Margin: **-6.125**) → **【DROP】**
 
 ### Real-Device Sample 2: Capital of Japan
 * **Question**: `日本の首都はどこですか？` (Where is the capital of Japan?)
 * **Positive Document**: `日本（にっぽん、にほん）は、東アジアに位置する島国。首都は東京都。日本列島およびその周辺の島々から構成される。` (Japan is an island nation... The capital is Tokyo...)
   - Ruri Cosine Similarity: **0.949**
-  - Qwen2.5 Logit Sufficiency Prob: **62.11%** (Margin: +0.50) → **【PASS】**
+  - Qwen2.5 Logit Sufficiency Probability: **62.11%** (Margin: +0.50) → **【PASS】**
 * **Near-Miss Negative Document**: `日本（にっぽん、にほん）は、東アジアに位置する島国。日本列島およびその周辺の島々から構成され、四季折々の美しい自然が特徴である。` (Japan is an island nation... characterized by beautiful seasonal nature.)
   - Ruri Cosine Similarity: **0.949** (Identical score to the positive!)
-  - Qwen2.5 Logit Sufficiency Prob: **0.25%** (Margin: **-6.000**) → **【DROP】**
+  - Qwen2.5 Logit Sufficiency Probability: **0.25%** (Margin: **-6.000**) → **【DROP】**
 
 ---
 

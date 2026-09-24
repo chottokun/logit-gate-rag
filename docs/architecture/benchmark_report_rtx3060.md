@@ -1,4 +1,5 @@
 ---
+okf_version: "0.2"
 type: "Benchmark Report"
 title: "Ruri-v3-30m × Qwen2.5 Logit ルーター実機検証ベンチマーク結果レポート"
 description: "RTX 3060 (12GB VRAM) 上で cl-nagoya/ruri-v3-30m と Qwen/Qwen2.5-1.5B-Instruct を用いて実施した、情報充足性判定・ニアミス遮断・レイテンシ実測レポート"

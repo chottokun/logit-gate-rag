@@ -1,4 +1,5 @@
 ---
+okf_version: "0.2"
 type: "Model Specification"
 title: "cl-nagoya/ruri-v3-30m 埋め込みモデル仕様と最適化"
 description: "パラメータ数37M・埋め込み次元256・SentencePiece Unigram依存による極限低遅延セマンティック検索モデルの活用仕様"

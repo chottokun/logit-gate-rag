@@ -81,19 +81,19 @@ uv sync
 提供されているデモスクリプトで、Ruri 検索と Qwen2.5 Logit ルーターの連携動作を確認できます。
 
 ```bash
-uv run python demo.py
+PYTHONPATH=. uv run demo.py
 ```
 
 ### ベンチマークの実行
 N=54 の情報充足性評価ベンチマークスイートを実行します：
 
 ```bash
-uv run python benchmarks/run_benchmark.py
+PYTHONPATH=. uv run benchmarks/run_benchmark.py
 ```
 
 ### 単体テストの実行
 ```bash
-uv run pytest
+PYTHONPATH=. uv run pytest
 ```
 
 ---

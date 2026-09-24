@@ -1,3 +1,11 @@
+---
+okf_version: "0.2"
+type: "Documentation"
+title: "Knowledge Update Log"
+description: "Documentation for Knowledge Update Log"
+status: "stable"
+---
+
 # Knowledge Update Log
 
 ## 2026-09-24

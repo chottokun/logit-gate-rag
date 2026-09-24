@@ -1,3 +1,11 @@
+---
+okf_version: "0.2"
+type: "Documentation"
+title: "Ruri埋め込み検索とQwen2.5選択肢ロジットルーターによる高精度・低遅延RAGフィルタリングの設計と実装"
+description: "Documentation for Ruri埋め込み検索とQwen2.5選択肢ロジットルーターによる高精度・低遅延RAGフィルタリングの設計と実装"
+status: "stable"
+---
+
 # Ruri埋め込み検索とQwen2.5選択肢ロジットルーターによる高精度・低遅延RAGフィルタリングの設計と実装
 
 ## 1. はじめに

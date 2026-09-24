@@ -1,5 +1,8 @@
 ---
+type: "Documentation"
 okf_version: "0.2"
+description: "Documentation Index"
+status: "stable"
 title: Project Knowledge Index / プロジェクトナレッジインデックス
 ---
 

@@ -1,3 +1,11 @@
+---
+okf_version: "0.2"
+type: "Documentation"
+title: "Document"
+description: "Documentation for Document"
+status: "stable"
+---
+
 ### 1. ユーザー開発リポジトリ（統合対象アーキテクチャ）
 
 * **`chottokun/ruri_with_sentencepiece_lite`**

@@ -1,4 +1,5 @@
 ---
+okf_version: "0.2"
 type: "Benchmark Report"
 title: "大規模データセット (N=54) 実機ベンチマーク検証レポート"
 description: "RTX 3060 (12GB VRAM) 上で N=54 (正例18 / ニアミス負例18 / 完全不在18) に拡大したマルチドメインデータセットによる実測検証結果"
